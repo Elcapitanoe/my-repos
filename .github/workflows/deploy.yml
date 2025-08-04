@@ -16,17 +16,24 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repo
+        uses: actions/checkout@v4
 
-      - uses: actions/configure-pages@v4
+      - name: Configure Pages
+        uses: actions/configure-pages@v4
 
-      - run: |
+      - name: Prepare dist folder
+        run: |
           rm -rf dist
           mkdir dist
-          cp -r * dist
+          cp index.html dist/
+          cp style.css  dist/
+          cp script.js dist/
 
-      - uses: actions/upload-pages-artifact@v4
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v4
         with:
           path: dist
 
-      - uses: actions/deploy-pages@v4
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
