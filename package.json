@@ -1,0 +1,35 @@
+{
+  "name": "my-repos",
+  "private": true,
+  "version": "2.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "npx tailwindcss -i ./src/input.css -o ./dist/style.css --watch",
+    "build": "npx tailwindcss -i ./src/input.css -o ./dist/style.css --minify",
+    "preview": "vite preview",
+    "deploy:vercel": "vercel --prod",
+    "deploy:netlify": "netlify deploy --prod",
+    "deploy:cloudflare": "wrangler pages publish dist"
+  },
+  "description": "",
+  "main": "index.js",
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.1.17",
+    "@tailwindcss/postcss": "^4.1.17",
+    "autoprefixer": "^10.4.22",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.17",
+    "vite": "^4.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Elcapitanoe/my-repos.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Elcapitanoe/my-repos/issues"
+  },
+  "homepage": "https://github.com/Elcapitanoe/my-repos#readme"
+}

@@ -1,20 +1,302 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id" class="antialiased">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GitHub Repositories - @Elcapitanoe</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Elcapitanoe | Engineering Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+  <link href="./dist/style.css" rel="stylesheet" />
 </head>
-<body>
-  <main>
-    <h1>Public Repositories</h1>
-    <p class="subtitle">
-      GitHub profile:
-      <a href="https://github.com/Elcapitanoe" target="_blank">Elcapitanoe</a>
-    </p>
-    <section id="repo-container">Loading repositories...</section>
+
+<body
+  class="bg-light-bg text-light-text dark:bg-dark-bg dark:text-dark-text transition-colors duration-300 min-h-screen flex flex-col">
+  <header
+    class="sticky top-0 z-50 w-full backdrop-blur-md bg-white/80 dark:bg-dark-bg/80 border-b border-light-border dark:border-dark-border supports-[backdrop-filter]:bg-white/60">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex h-16 items-center justify-between">
+        <div class="flex items-center gap-3">
+          <div
+            class="h-8 w-8 rounded-lg bg-black dark:bg-white flex items-center justify-center text-white dark:text-black font-bold font-mono">
+            E</div>
+          <div>
+            <h1 class="font-bold text-lg tracking-tight leading-none">ELCAPITANOE</h1>
+            <span class="text-xs font-mono text-light-muted dark:text-dark-muted">OPEN SOURCE PORTFOLIO</span>
+          </div>
+        </div>
+        <div class="flex items-center gap-4">
+          <a href="https://github.com/Elcapitanoe" target="_blank"
+            class="hidden sm:flex items-center gap-2 text-sm font-medium hover:text-brand-light dark:hover:text-brand-dark transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path
+                d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
+              <path d="M9 18c-4.51 2-5-2-7-2" />
+            </svg>
+            GitHub Profile
+          </a>
+          <button id="theme-toggle"
+            class="p-2 rounded-lg border border-light-border dark:border-dark-border bg-light-surface dark:bg-dark-surface hover:bg-gray-200 dark:hover:zinc-800 transition-colors focus:outline-none focus:ring-2 focus:ring-brand-light"
+            aria-label="Toggle Dark Mode">
+            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+              <path
+                d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+                fill-rule="evenodd" clip-rule="evenodd"></path>
+            </svg>
+            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-grow w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <div
+      class="mb-12 text-center sm:text-left sm:flex sm:items-end sm:justify-between border-b border-light-border dark:border-dark-border pb-6">
+      <div class="animate-fade-in">
+        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-light-text dark:text-white mb-2">Repositories
+        </h2>
+        <p class="text-light-muted dark:text-dark-muted text-lg max-w-2xl">A collection of projects, experiments, and
+          open source contributions.</p>
+      </div>
+      <div
+        class="mt-4 sm:mt-0 flex items-center gap-2 text-sm font-mono text-light-muted dark:text-dark-muted animate-fade-in"
+        style="animation-delay: 0.1s;">
+        <span class="inline-block w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+        <span>Live Data from GitHub API</span>
+      </div>
+    </div>
+
+    <div class="mb-8 flex items-center gap-4 text-sm font-medium overflow-x-auto pb-2 no-scrollbar"
+      id="filter-container">
+      <button onclick="filterProjects('All')"
+        class="filter-btn active px-4 py-2 rounded-md transition-all active:scale-95 whitespace-nowrap bg-black dark:bg-white text-white dark:text-black">All
+        Projects</button>
+      <button onclick="filterProjects('TypeScript')"
+        class="filter-btn px-4 py-2 rounded-md transition-all active:scale-95 whitespace-nowrap text-light-muted hover:text-black dark:hover:text-white">TypeScript</button>
+      <button onclick="filterProjects('Astro')"
+        class="filter-btn px-4 py-2 rounded-md transition-all active:scale-95 whitespace-nowrap text-light-muted hover:text-black dark:hover:text-white">Astro</button>
+      <button onclick="filterProjects('HTML')"
+        class="filter-btn px-4 py-2 rounded-md transition-all active:scale-95 whitespace-nowrap text-light-muted hover:text-black dark:hover:text-white">HTML/CSS</button>
+      <button onclick="filterProjects('Shell')"
+        class="filter-btn px-4 py-2 rounded-md transition-all active:scale-95 whitespace-nowrap text-light-muted hover:text-black dark:hover:text-white">Shell</button>
+    </div>
+
+    <div id="repo-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
   </main>
-  <script src="script.js"></script>
+
+  <footer class="border-t border-light-border dark:border-dark-border mt-auto bg-light-surface dark:bg-dark-surface/50">
+    <div
+      class="max-w-7xl mx-auto px-4 py-8 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-4">
+      <p class="text-sm text-light-muted dark:text-dark-muted font-mono">&copy; <span id="year"></span> Elcapitanoe.
+        Built with precision.</p>
+      <div class="flex gap-6">
+        <a href="#"
+          class="text-light-muted hover:text-brand-light dark:hover:text-brand-dark transition-colors text-sm">Status</a>
+        <a href="#"
+          class="text-light-muted hover:text-brand-light dark:hover:text-brand-dark transition-colors text-sm">Contact</a>
+        <a href="#"
+          class="text-light-muted hover:text-brand-light dark:hover:text-brand-dark transition-colors text-sm">Privacy</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const USERNAME = "Elcapitanoe";
+    const CONTAINER = document.getElementById("repo-container");
+    let allRepos = [];
+
+    const LANG_COLORS = {
+      "JavaScript": "bg-yellow-400",
+      "TypeScript": "bg-blue-500",
+      "HTML": "bg-orange-500",
+      "CSS": "bg-indigo-500",
+      "Vue": "bg-green-500",
+      "React": "bg-cyan-400",
+      "Python": "bg-blue-600",
+      "Java": "bg-red-600",
+      "Shell": "bg-gray-500",
+      "PHP": "bg-purple-600",
+      "Go": "bg-cyan-500",
+      "C++": "bg-pink-600",
+      "C": "bg-slate-500",
+      "C#": "bg-green-600",
+      "Ruby": "bg-red-500",
+      "Swift": "bg-orange-600",
+      "Rust": "bg-orange-700"
+    };
+    const DEFAULT_LANG_COLOR = "bg-gray-400";
+
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+
+    function initTheme() {
+      if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+        themeToggleLightIcon.classList.remove('hidden');
+      } else {
+        document.documentElement.classList.remove('dark');
+        themeToggleDarkIcon.classList.remove('hidden');
+      }
+    }
+
+    themeToggleBtn.addEventListener('click', function () {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+      if (localStorage.getItem('color-theme')) {
+        if (localStorage.getItem('color-theme') === 'light') {
+          document.documentElement.classList.add('dark');
+          localStorage.setItem('color-theme', 'dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+          localStorage.setItem('color-theme', 'light');
+        }
+      } else {
+        if (document.documentElement.classList.contains('dark')) {
+          document.documentElement.classList.remove('dark');
+          localStorage.setItem('color-theme', 'light');
+        } else {
+          document.documentElement.classList.add('dark');
+          localStorage.setItem('color-theme', 'dark');
+        }
+      }
+    });
+
+    function formatDate(dateString) {
+      const date = new Date(dateString);
+      return new Intl.DateTimeFormat('id-ID', { day: '2-digit', month: 'short', year: 'numeric' }).format(date);
+    }
+
+    function timeAgo(dateString) {
+      const date = new Date(dateString);
+      const now = new Date();
+      const seconds = Math.floor((now - date) / 1000);
+      let interval = seconds / 31536000;
+      if (interval > 1) return Math.floor(interval) + "y ago";
+      interval = seconds / 2592000;
+      if (interval > 1) return Math.floor(interval) + "mo ago";
+      interval = seconds / 86400;
+      if (interval > 1) return Math.floor(interval) + "d ago";
+      interval = seconds / 3600;
+      if (interval > 1) return Math.floor(interval) + "h ago";
+      interval = seconds / 60;
+      if (interval > 1) return Math.floor(interval) + "m ago";
+      return "Just now";
+    }
+
+    const ICONS = {
+      star: `<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path></svg>`,
+      folder: `<svg class="w-8 h-8 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"></path></svg>`,
+      arrow: `<svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>`
+    };
+
+    function renderSkeletons() {
+      CONTAINER.innerHTML = Array(6).fill(0).map(() => `
+        <div class="rounded-xl border border-light-border dark:border-dark-border bg-white dark:bg-dark-surface p-6 flex flex-col h-64 animate-pulse">
+          <div class="flex justify-between items-start mb-4">
+            <div class="h-8 w-8 bg-gray-200 dark:bg-zinc-800 rounded"></div>
+            <div class="h-4 w-20 bg-gray-200 dark:bg-zinc-800 rounded"></div>
+          </div>
+          <div class="h-6 w-3/4 bg-gray-200 dark:bg-zinc-800 rounded mb-3"></div>
+          <div class="space-y-2 mb-auto">
+            <div class="h-4 w-full bg-gray-200 dark:bg-zinc-800 rounded"></div>
+            <div class="h-4 w-2/3 bg-gray-200 dark:bg-zinc-800 rounded"></div>
+          </div>
+          <div class="flex items-center gap-4 mt-4">
+            <div class="h-4 w-16 bg-gray-200 dark:bg-zinc-800 rounded"></div>
+            <div class="h-4 w-16 bg-gray-200 dark:bg-zinc-800 rounded"></div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function renderRepos(repos) {
+      CONTAINER.innerHTML = "";
+      repos.forEach((repo, index) => {
+        const langColor = LANG_COLORS[repo.language] || DEFAULT_LANG_COLOR;
+        const updatedRelative = timeAgo(repo.updated_at);
+        const card = document.createElement("div");
+        card.className = "group relative flex flex-col h-full bg-white dark:bg-dark-surface border border-light-border dark:border-dark-border rounded-xl p-6 card-hover-effect overflow-hidden animate-slide-up";
+        card.style.animationDelay = `${index * 0.05}s`;
+        card.innerHTML = `
+          <div class="flex justify-between items-start mb-4">
+            <div class="p-2 bg-light-surface dark:bg-black rounded-lg text-light-text dark:text-white border border-light-border dark:border-dark-border">${ICONS.folder}</div>
+            <span class="text-xs font-mono text-light-muted dark:text-dark-muted px-2 py-1 rounded bg-light-surface dark:bg-black border border-light-border dark:border-dark-border">${updatedRelative}</span>
+          </div>
+          <h3 class="text-xl font-bold text-light-text dark:text-white mb-2 tracking-tight line-clamp-1" title="${repo.name}">${repo.name}</h3>
+          <p class="text-sm text-light-muted dark:text-dark-muted mb-6 flex-grow line-clamp-3 leading-relaxed">${repo.description || "No description provided. This is a technical repository."}</p>
+          <div class="flex items-center justify-between mt-auto pt-4 border-t border-light-border dark:border-dark-border">
+            <div class="flex items-center gap-4">
+              ${repo.language ? `<div class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full ${langColor}"></span><span class="text-xs font-medium text-light-text dark:text-dark-text">${repo.language}</span></div>` : ''}
+              <div class="flex items-center gap-1 text-light-muted dark:text-dark-muted text-xs">${ICONS.star}<span>${repo.stargazers_count}</span></div>
+            </div>
+            <a href="${repo.html_url}" target="_blank" class="inline-flex items-center gap-1 text-sm font-semibold text-light-text dark:text-white group-hover:text-brand-light dark:group-hover:text-brand-dark transition-colors">View ${ICONS.arrow}</a>
+          </div>
+          <div class="absolute -inset-0.5 bg-gradient-to-r from-brand-light to-purple-600 rounded-xl blur opacity-0 group-hover:opacity-15 transition duration-500 -z-10"></div>
+        `;
+        CONTAINER.appendChild(card);
+      });
+    }
+
+    function filterProjects(category) {
+      const buttons = document.querySelectorAll('.filter-btn');
+      buttons.forEach(btn => {
+        btn.classList.remove('bg-black', 'dark:bg-white', 'text-white', 'dark:text-black');
+        btn.classList.add('text-light-muted', 'hover:text-black', 'dark:hover:text-white');
+        if (btn.innerText.includes(category) || (category === 'All' && btn.innerText.includes('All'))) {
+          btn.classList.remove('text-light-muted', 'hover:text-black', 'dark:hover:text-white');
+          btn.classList.add('bg-black', 'dark:bg-white', 'text-white', 'dark:text-black');
+        }
+      });
+
+      if (category === 'All') {
+        renderRepos(allRepos);
+      } else if (category === 'HTML') {
+        const filtered = allRepos.filter(repo => repo.language === 'HTML' || repo.language === 'CSS');
+        renderRepos(filtered);
+      } else {
+        const filtered = allRepos.filter(repo => repo.language === category);
+        renderRepos(filtered);
+      }
+    }
+
+    function renderError(message) {
+      CONTAINER.innerHTML = `
+        <div class="col-span-full flex flex-col items-center justify-center py-20 text-center">
+          <div class="w-16 h-16 bg-red-100 dark:bg-red-900/20 text-red-600 dark:text-red-400 rounded-full flex items-center justify-center mb-4"><svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg></div>
+          <h3 class="text-xl font-bold text-light-text dark:text-white mb-2">Connection Error</h3>
+          <p class="text-light-muted dark:text-dark-muted max-w-md mx-auto mb-6">${message}</p>
+          <button onclick="fetchData()" class="px-6 py-2 bg-black dark:bg-white text-white dark:text-black rounded-lg font-medium hover:opacity-80 transition-opacity">Retry Connection</button>
+        </div>
+      `;
+    }
+
+    async function fetchData() {
+      renderSkeletons();
+      try {
+        const response = await fetch(`https://api.github.com/users/${USERNAME}/repos`);
+        if (!response.ok) throw new Error("GitHub API rate limit or user not found.");
+        const data = await response.json();
+        data.sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at));
+        allRepos = data;
+        renderRepos(allRepos);
+      } catch (error) {
+        console.error(error);
+        renderError("Failed to retrieve repository data from GitHub. Please check your connection.");
+      }
+    }
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+    initTheme();
+    fetchData();
+  </script>
 </body>
+
 </html>
